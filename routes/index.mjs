@@ -1,5 +1,5 @@
 'use strict';
-import principal from './principalRoute.mjs';
+import principal from './GetRoute.mjs';
 
 //Pegando todas as rotas
 export default app =>{

@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --cor-branco: #F5EBE0;
+    --cor-verde: #34A0A4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: var(--cor-verde);
+}
+
+/*Definindo as letras como branco*/
+h1,
+label,
+small,
+a,
+h4,
+h5{
+    color: var(--cor-branco);
+}
+/*Alterando todos os inputs*/
+input, select{
+    background-color: var(--cor-branco);
+    border-radius: 14px;
+    border-color: var(--cor-branco);
+}
+
+/*Tela login e cadastro*/
+
+/*Cabeçalho*/
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .5rem;
+}
+
+.nav__icon{
+    margin-left: 1rem;
+}
+
+.nav__imagem{
+    margin: 0 auto;
+}
+
+.nav_icon-icone{
+    color: var(--cor-branco);
+}
+
+
+/*Toda a parte do forms e h1*/
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*Alterando o input email e password*/
+input[type="email"], input[type="password"]{
+    height: 1.4rem;
+    width: 100%;
+}
+
+/*Botão Submit*/
+.login__forms___submit{
+    display: flex; 
+    justify-content: center;
+}
+input[type="submit"], button{
+    align-content: center;
+    color: var(--cor-verde);
+    padding: .4rem 2.6rem;
+    cursor: pointer;
+}
+/*Fim tela login*/
+
+/*Tela de abertura*/
+.logo{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+/*Tamanho da imagem*/
+.logo > div > a > img{
+    height: 10rem;
+}
+
+.cadastro__login > section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.cadastro__login___social{
+    text-align: center;
+}
+.cadastro__login___social-botao{
+    width: 280px;
+}
+h4, h5{
+    margin: 0;
+}
+
+button{
+    align-content: center;
+    color: var(--cor-verde);
+    padding: .4rem 2.6rem;
+    cursor: pointer;
+    border-radius: 14px;
+    border: 1px solid var(--cor-branco);
+}
+
+
+/*Tela cadastro*/
+
+select,
+input[type="date"]{
+    height: 1.4rem;
+    width: 100%;
+}
+
+.cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.cadastro__forms___submit{
+    display: flex; 
+    justify-content: center;
+}
+/*Fim cadastro*/

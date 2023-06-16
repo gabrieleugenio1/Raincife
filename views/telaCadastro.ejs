@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RainCife</title>
+    <link rel="icon" href="/assets/img/logo-RainCife-azul.png">
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__icon"><a href="/"><i class="fa-solid fa-chevron-left fa-xl nav_icon-icone"></i></a></div>           
+            <div><a href="/"><img src="/assets/img/logo-branca.svg" alt=""></a></div>
+            <div></div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="cadastro">
+                <div class="cadastro__forms" >
+                    <form action="/criar-conta" method="post">
+                        <div>
+                            <label for="emailcel">Digite seu email ou número de telefone:</label><br>
+                            <input type="email" name="emailcel" id="emailcel">
+                        </div>
+                        <div>
+                            <label for="senha">Digite sua senha:</label><br>
+                            <input type="password" name="senha" id="senha">
+                        </div>
+                        <div>
+                            <label for="confirmarSenha">Confirme sua senha:</label><br>
+                            <input type="password" name="confirmarSenha" id="confirmarSenha">
+                        </div>
+                        <div>
+                            <label for="data">Data de nascimento    :</label><br>
+                            <input type="date" name="data" id="data">
+                        </div>
+                        <div>
+                            <label for="data">Localização:</label><br>
+                           <select name="localizacao" id="localizacao">
+                            <option value="#" selected>Selecione</option>
+                            <option value="#">Morro 1</option>
+                            <option value="#">Morro 2</option>
+                            <option value="#">Morro 3</option>
+                            <option value="#">Morro 4</option>
+                           </select>
+                        </div>
+                        <br>
+                        <div class="cadastro__forms___submit">
+                            <input type="submit" value="Criar conta">
+                        </div>                       
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
