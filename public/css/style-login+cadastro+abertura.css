@@ -42,7 +42,9 @@ input, select{
     color: var(--cor-branco);
 }
 
-
+.cadastro__forms__espaco{   
+     margin-bottom: 0.2rem;
+}
 /*Toda a parte do forms e h1*/
 .login{
     display: flex;
@@ -53,7 +55,7 @@ input, select{
 
 /*Alterando o input email e password*/
 input[type="email"], input[type="password"], input[type="text"], input[type="number"]{
-    height: 1.4rem;
+    height: 2.2rem;
     width: 100%;
 }
 
@@ -82,12 +84,13 @@ input[type="submit"], button{
 }
 
 input[type="submit"]{
+    font-size: 1rem;
     font-weight: 700;
-    transition: 1.6s all;
+    transition: background-color 1s ease-in-out;
 }
 
 input[type="submit"]:hover {
-   
+ 
     background-color: #97EBF3F2;
 }
 
@@ -135,7 +138,7 @@ button{
 
 select,
 input[type="date"]{
-    height: 1.4rem;
+    height: 2.2rem;
     width: 100%;
 }
 

@@ -9,7 +9,6 @@ export default class PostController {
     static async cadastro (req, res) {
         const user = req.body;
         const validacao = validarUser(user); 
-        console.log(validacao)
          if(validacao?.emailCel) {
             const salt = genSaltSync(10);
             const senhaCriptografada = hashSync(validacao.senha, salt); 

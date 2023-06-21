@@ -9,7 +9,7 @@ const tempo = setTimeout(() => {
 }, 12000);
 
 alerts.addEventListener("onload", () => tempo);
-
+ 
 
 const removerAlerta = (event) => {
   const alerta = event.currentTarget;

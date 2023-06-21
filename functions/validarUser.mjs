@@ -13,11 +13,12 @@ const validarUser = (user) => {
   };
 
   /** INICIO DAS VALIDAÇÕES **/      
-  const erros = [];     
+  const erros = [];
 
   const regex = {   
+    nome: /^[A-Za-zÀ-ÖØ-öø-ÿ\s']+(\s[A-Za-zÀ-ÖØ-öø-ÿ\s']+)+$/u,
     email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-    senha: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+    senha: /^.{6,}$/,
     celular: /^\(?\d{2}\)?[-.\s]?\d{4,5}[-.\s]?\d{4}$/
   };
 
@@ -28,7 +29,7 @@ const validarUser = (user) => {
   };
 
   
-  if(!validado.nome || validado.nome === undefined || validado.nome === null) {
+  if(!validado.nome || validado.nome === undefined || validado.nome === null || !regex.nome.test(validado.nome)) {
     erros.push({error: "Nome inválido!"});
   };
 
@@ -52,15 +53,15 @@ const validarUser = (user) => {
     };
   };
 
-  if(!validado.senha || validado.senha === undefined || validado.senha === null || validado.senha <= 6 || regex.senha.test(validado.senha) ) {
+  if(!validado.senha || validado.senha === undefined || validado.senha === null || validado.senha <= 6 ||  !regex.senha.test(validado.senha) ) {
     erros.push({error: "Senha inválida! A senha deve ter no minimo 6 caracteres."});
   };
 
   if(!validado.tipoConta || validado.tipoConta === undefined || validado.tipoConta === null) {
     erros.push({error: "Email ou Celular não inserido."});
   };
+  
   /* FINAL DAS VALIDAÇÕES */ 
-
   return erros?.length > 0 ? erros : validado;   
 };
 
