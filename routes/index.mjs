@@ -1,9 +1,10 @@
 'use strict';
-import principal from './GetRoute.mjs';
+import get from './GetRoute.mjs';
+import post from './PostRoute.mjs';
 
 //Pegando todas as rotas
-export default app =>{
+export default app => {
     app.use(
-        principal,
-        )
+        get, post
+    )
 };

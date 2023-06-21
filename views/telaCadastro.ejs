@@ -27,28 +27,28 @@
                     <form action="/criar-conta" method="post">
                         <div>
                             <label for="emailcel">Digite seu email ou número de telefone:</label><br>
-                            <input type="email" name="emailcel" id="emailcel">
+                            <input type="text" name="emailCel" id="emailCel" required>
                         </div>
                         <div>
                             <label for="senha">Digite sua senha:</label><br>
-                            <input type="password" name="senha" id="senha">
+                            <input type="password" name="senha" id="senha" minlength="6" required>
                         </div>
                         <div>
                             <label for="confirmarSenha">Confirme sua senha:</label><br>
-                            <input type="password" name="confirmarSenha" id="confirmarSenha">
+                            <input type="password" name="confirmarSenha" id="confirmarSenha" required>
                         </div>
                         <div>
-                            <label for="data">Data de nascimento    :</label><br>
-                            <input type="date" name="data" id="data">
+                            <label for="data">Data de nascimento: </label><br>
+                            <input type="date" name="dataNascimento" id="dataNascimento" required>
                         </div>
                         <div>
                             <label for="data">Localização:</label><br>
-                           <select name="localizacao" id="localizacao">
-                            <option value="#" selected>Selecione</option>
-                            <option value="#">Morro 1</option>
-                            <option value="#">Morro 2</option>
-                            <option value="#">Morro 3</option>
-                            <option value="#">Morro 4</option>
+                           <select name="localizacao" id="localizacao" required>
+                            <option selected>Selecione</option>
+                            <option value="morro1">Morro 1</option>
+                            <option value="morro2">Morro 2</option>
+                            <option value="morro3">Morro 3</option>
+                            <option value="morro4">Morro 4</option>
                            </select>
                         </div>
                         <br>

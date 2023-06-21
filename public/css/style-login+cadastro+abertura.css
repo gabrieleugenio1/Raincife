@@ -65,7 +65,7 @@ input, select{
 
 
 /*Alterando o input email e password*/
-input[type="email"], input[type="password"]{
+input[type="email"], input[type="password"], input[type="text"], input[type="number"]{
     height: 1.4rem;
     width: 100%;
 }

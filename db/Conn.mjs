@@ -1,7 +1,7 @@
 'use strict';
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize } from "sequelize";
 
-const Conexao = new Sequelize(process.env.DATABASE, process.env.DB_NOME, process.env.DB_SENHA, {
+const Conn = new Sequelize(process.env.DATABASE, process.env.DB_NOME, process.env.DB_SENHA, {
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   dialect: process.env.DB_DIALECT,
@@ -13,4 +13,4 @@ const Conexao = new Sequelize(process.env.DATABASE, process.env.DB_NOME, process
   }
 });
 
-export { Sequelize, Conexao, DataTypes };
+export { Sequelize, Conn };

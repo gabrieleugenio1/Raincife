@@ -1,6 +1,6 @@
 'use strict';
 //Conectando com o banco
-import {Conexao}  from '../db/Conexao.mjs';
+import { Conn }  from '../db/Conn.mjs';
 import routes from '../routes/index.mjs';
 import flash from "connect-flash";
 import cookieParser from 'cookie-parser';
@@ -16,7 +16,7 @@ function configExpress(express, app) {
   app.use(express.urlencoded({ extended: true }));
   app.use(flash());
   app.use(cookieParser());
-  Conexao.authenticate();
+  Conn.authenticate();
 
   //Session
    app.use(session({

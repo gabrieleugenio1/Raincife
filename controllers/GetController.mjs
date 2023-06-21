@@ -1,5 +1,4 @@
 'use strict';
-import { genSaltSync, hashSync } from 'bcrypt';
 
 export default class GetController {
 
