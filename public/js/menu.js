@@ -3,7 +3,7 @@ const btnMenu = document.querySelector(".btn-menu");
 const menu = document.querySelector(".menu");
 
 function handleButtonClick(event) {
-  event.preventDefault();
+  if (event.type === "touchstart") event.preventDefault();
   event.stopPropagation();
   nav.classList.toggle("active");
   handleClickOutside(menu, () => {
@@ -19,6 +19,7 @@ function handleClickOutside(targetElement, callback) {
     if (!targetElement.contains(event.target)) {
       targetElement.removeAttribute("data-target");
       html.removeEventListener("click", handleHTMLClick);
+      html.removeEventListener("touchstart", handleHTMLClick);
       callback();
     }
   }
@@ -41,4 +42,3 @@ function setAria() {
 
 btnMenu.addEventListener("click", handleButtonClick);
 btnMenu.addEventListener("touchstart", handleButtonClick);
-  

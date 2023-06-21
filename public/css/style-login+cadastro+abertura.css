@@ -45,6 +45,10 @@ input, select{
 .cadastro__forms__espaco{   
      margin-bottom: 0.2rem;
 }
+.cadastro__forms__espaco-validacao{
+    color: #de0f0f;
+    font-weight: 400;
+}
 /*Toda a parte do forms e h1*/
 .login{
     display: flex;

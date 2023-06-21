@@ -48,9 +48,10 @@ const validarUser = (user) => {
   if (!validado.dataNascimento || validado.dataNascimento === undefined || validado.dataNascimento === null) {
     erros.push({ error: "Data de nascimento inválida!" });
   } else {
-    if (!moment(validado.dataNascimento, 'YYYY-MM-DD', true).isValid() || moment(validado.dataNascimento, 'YYYY-MM-DD').isAfter(moment())) {
-     erros.push({ error: "Data de nascimento inválida!" });
-    };
+    const dataNascimento = moment(validado.dataNascimento, 'YYYY-MM-DD');
+    if (!dataNascimento.isValid() || dataNascimento.isAfter(moment()) || dataNascimento.isBefore(moment().subtract(5, 'years'))) {
+      erros.push({ error: "Data de nascimento inválida!" });
+    }
   };
 
   if(!validado.senha || validado.senha === undefined || validado.senha === null || validado.senha <= 6 ||  !regex.senha.test(validado.senha) ) {

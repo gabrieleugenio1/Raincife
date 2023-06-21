@@ -1,10 +1,3 @@
-:root {
-  font-size: 16px;
-  --cor-branco: #f5ebe0;
-  --cor-azul: #3946d4;
-  --cor-verde: #34a0a4;
-}
-
 a {
   color: var(--cor-verde);
   text-decoration: none;
@@ -116,15 +109,20 @@ a {
 
 .menu__usuario {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  text-align: start;
+  text-align: center;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
+  color: var(--cor-verde);
+  align-items: center;
 }
 
 .menu__usuario > img {
-  margin-right: 25px;
+  margin-bottom: 0.5rem;
   border-radius: 50%;
   height: 50px;
+  width: 50px;
 }
 
 .icon-distancia {

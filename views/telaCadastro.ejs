@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css">
     <link rel="stylesheet" href="/css/alerts.css">
     <script defer src="/js/alert.js"></script>
-
+    <script defer src="/js/validacao.js"></script>
 </head>
 <body>
     <header class="header">
@@ -30,6 +30,7 @@
                         <div class="cadastro__forms__espaco">
                             <label for="nome">Digite seu nome:</label><br>
                             <input type="text" name="nome" id="nome" minlength="4" required>
+                            <small class="cadastro__forms__espaco-validacao" id="validacaoNome"></small>
                         </div>
                         <div class="cadastro__forms__espaco">
                             <label for="emailCel">Digite seu email ou número de telefone:</label><br>
@@ -59,7 +60,7 @@
                         </div>
                         <br>
                         <div class="cadastro__forms___submit">
-                            <input type="submit" value="Criar conta">
+                            <input type="submit" id="submitCadastro" value="Criar conta">
                         </div>                       
                     </form>
                 </div>
