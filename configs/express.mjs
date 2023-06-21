@@ -21,7 +21,7 @@ function configExpress(express, app) {
   //Session
    app.use(session({
     secret:process.env.SECRET_SESSION,
-    resave:false,
+    resave:true,
     saveUninitialized:true    
   }));
 
@@ -29,7 +29,7 @@ function configExpress(express, app) {
   routes(app);
 
   //Página não encontrada: 404
-  app.get('*', function(req, res) {
+  app.get('*', (req, res) => {
     res.status(404).json({message:'404'});
   });
 };

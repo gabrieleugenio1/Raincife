@@ -1,18 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-:root {
-    --cor-branco: #F5EBE0;
-    --cor-verde: #34A0A4;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
 body{
     background-color: var(--cor-verde);
 }
@@ -70,17 +57,40 @@ input[type="email"], input[type="password"], input[type="text"], input[type="num
     width: 100%;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 /*Botão Submit*/
 .login__forms___submit{
     display: flex; 
     justify-content: center;
 }
+
 input[type="submit"], button{
     align-content: center;
     color: var(--cor-verde);
     padding: .4rem 2.6rem;
     cursor: pointer;
 }
+
+input[type="submit"]{
+    font-weight: 700;
+    transition: 1.6s all;
+}
+
+input[type="submit"]:hover {
+   
+    background-color: #97EBF3F2;
+}
+
 /*Fim tela login*/
 
 /*Tela de abertura*/

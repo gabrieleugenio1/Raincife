@@ -1,0 +1,16 @@
+<%if (erros.length > 0 || sucess.length > 0) { %>     
+    <div class="alerts">
+        <div class="alert">
+            <%if(erros?.length > 0){ %> 
+                <% for(let erro of erros) { %>           
+                    <div class="danger"><%= erro.error ?? erro %></div>                     
+                <% } %>                           
+            <% } else {%> 
+                <% for(let s of sucess) { %>           
+                    <div class="sucess"><%= s %></div>                     
+                <% } %>                  
+            <%} %>
+        </div>
+    </div>
+<% } %>
+

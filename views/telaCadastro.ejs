@@ -2,31 +2,37 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RainCife</title>
-    <link rel="icon" href="/assets/img/logo-RainCife-azul.png">
+    <title><%= title %></title>
+    <link rel="icon" href="/assets/img/logo-verde.svg">
     <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/globals.css">
     <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css">
+    <link rel="stylesheet" href="/css/alerts.css">
+    <script defer src="/js/alert.js"></script>
 
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
+        <div class="nav">
             <div class="nav__icon"><a href="/"><i class="fa-solid fa-chevron-left fa-xl nav_icon-icone"></i></a></div>           
             <div><a href="/"><img src="/assets/img/logo-branca.svg" alt=""></a></div>
             <div></div>
-        </nav>
+        </div>
     </header>
-
+    <%- include("./partials/alerts"); %>
     <main>
         <section>
             <div class="cadastro">
                 <div class="cadastro__forms" >
                     <form action="/criar-conta" method="post">
                         <div>
-                            <label for="emailcel">Digite seu email ou número de telefone:</label><br>
+                            <label for="nome">Digite seu nome:</label><br>
+                            <input type="text" name="nome" id="nome" minlength="4" required>
+                        </div>
+                        <div>
+                            <label for="emailCel">Digite seu email ou número de telefone:</label><br>
                             <input type="text" name="emailCel" id="emailCel" required>
                         </div>
                         <div>
@@ -38,11 +44,11 @@
                             <input type="password" name="confirmarSenha" id="confirmarSenha" required>
                         </div>
                         <div>
-                            <label for="data">Data de nascimento: </label><br>
+                            <label for="dataNascimento">Data de nascimento: </label><br>
                             <input type="date" name="dataNascimento" id="dataNascimento" required>
                         </div>
                         <div>
-                            <label for="data">Localização:</label><br>
+                            <label for="localizacao">Localização:</label><br>
                            <select name="localizacao" id="localizacao" required>
                             <option selected>Selecione</option>
                             <option value="morro1">Morro 1</option>
@@ -60,5 +66,6 @@
             </div>
         </section>
     </main>
+
 </body>
 </html>

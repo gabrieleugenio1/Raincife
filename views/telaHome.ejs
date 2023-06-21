@@ -5,10 +5,11 @@
     <meta name="description" content="App de monitoramento de barreiras.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RainCife</title>
+    <title><%= title %></title>
     <link rel="icon" href="/assets/img/logo-verde.svg">
     <link rel="stylesheet" type="text/css" href="/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/style-home.css">
     <link rel="stylesheet" href="/css/menu.css">
     <script defer src="/js/menu.js"></script>
 </head>
@@ -30,8 +31,14 @@
                             <div class="menu__usuario" >
                                 <img src="https://static8.depositphotos.com/1046686/921/i/450/depositphotos_9218159-stock-photo-grey-background.jpg" alt="">
                                 <div>
-                                    <h5>Cleide Maria</h5><br>
-                                    <p>cleidemaria1960@gmail.com</p>
+                                    <h5><%= user.nome %></h5><br>
+                                    <p>
+                                        <% if(user.email) { %> 
+                                            Email: <%= user.email %>
+                                        <%} else { %> 
+                                            Número: <%= user.telefone %>
+                                        <%} %>                                                                  
+                                    </p>
                                 </div>
                             </div> 
                         </li>

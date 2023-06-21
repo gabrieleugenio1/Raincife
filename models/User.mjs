@@ -1,3 +1,5 @@
+'use strict';
+
 import { Conn } from '../db/Conn.mjs';
 import { DataTypes } from 'sequelize';
 
@@ -6,6 +8,10 @@ const User = Conn.define("User", {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
+    },
+    nome:{
+        type: DataTypes.STRING(120),
+        allowNull: false,
     },
     email: {
         type: DataTypes.STRING(120),

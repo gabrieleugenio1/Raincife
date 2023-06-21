@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RainCife</title>
-    <link rel="icon" href="/assets/img/logo-RainCife-azul.png">
+    <title><%= title %></title>
+    <link rel="icon" href="/assets/img/logo-verde.svg">
     <link rel="stylesheet" type="text/css" href="/css/all.min.css">
-    <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css">    
+    <link rel="stylesheet" href="/css/alerts.css">
+    <script defer src="/js/alert.js"></script>
 
 </head>
 <body>
     <header class="header">
-        <nav class="nav" >
+        <div class="nav" >
             <div class="nav__icon"><a href="/"><i class="fa-solid fa-chevron-left fa-xl nav_icon-icone"></i></a></div>           
             <div class="nav__imagem"><a href="/"><img src="/assets/img/logo-branca.svg" alt=""></a></div>
-        </nav>
+        </div>
     </header>
+
+    <%- include("./partials/alerts"); %>
 
     <main>
         <section>
@@ -26,7 +31,7 @@
                     <form action="/login-conta" method="post">
                         <div>
                             <label for="emailcel">Digite seu email ou número de telefone:</label><br>
-                            <input type="email" name="emailcel" id="emailcel">
+                            <input type="text" name="emailCel" id="emailCel">
                         </div>
                         <div>
                             <label for="senha">Digite sua senha:</label><br>
