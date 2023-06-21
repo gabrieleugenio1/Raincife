@@ -3,7 +3,7 @@
 //Definindo os principais módulos
 import { Router } from 'express';
 import GetController from '../controllers/GetController.mjs';
-import Middleware from '../middlewares/middleware.mjs';
+import Middleware from '../middlewares/Middlewares.mjs';
 
 const router = Router();
 
