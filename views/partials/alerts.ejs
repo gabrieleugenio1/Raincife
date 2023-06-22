@@ -1,4 +1,4 @@
-<%if (erros.length > 0 || sucess.length > 0) { %>     
+<%if (erros.length > 0 || success.length > 0) { %>     
     <div class="alerts">
         <div class="alert">
             <%if(erros?.length > 0){ %> 
@@ -6,8 +6,8 @@
                     <div class="danger"><%= erro.error ?? erro %></div>                     
                 <% } %>                           
             <% } else {%> 
-                <% for(let s of sucess) { %>           
-                    <div class="sucess"><%= s %></div>                     
+                <% for(let s of success) { %>           
+                    <div class="success"><%= s %></div>                     
                 <% } %>                  
             <%} %>
         </div>

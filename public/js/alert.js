@@ -1,5 +1,5 @@
 const danger = document.querySelectorAll(".danger");
-const success = document.querySelectorAll(".sucess");
+const success = document.querySelectorAll(".success");
 const dangerr = document.querySelectorAll(".danger");
 const alerts = document.querySelector(".alerts");
 

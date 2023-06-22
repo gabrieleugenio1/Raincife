@@ -10,7 +10,7 @@
     left: 50%;
 }
 
-.sucess, .danger{
+.success, .danger{
     transform: translateX(-50%);
     border: 1px solid transparent;
     border-radius: 0.25rem;
@@ -21,7 +21,7 @@
     text-align: center;
 }
 
-.sucess {
+.success {
     background-color: var(--alert-sucess);  
     border-color: var(--alert-sucess-borda);
 }

@@ -7,6 +7,7 @@ const validarUser = (user) => {
     nome: user.nome,
     emailCel: user.emailCel,
     senha: user.senha,
+    confirmarSenha: user.confirmarSenha,
     localizacao: user.localizacao,
     dataNascimento: user.dataNascimento,
     tipoConta: null
@@ -49,12 +50,12 @@ const validarUser = (user) => {
     erros.push({ error: "Data de nascimento inválida!" });
   } else {
     const dataNascimento = moment(validado.dataNascimento, 'YYYY-MM-DD');
-    if (!dataNascimento.isValid() || dataNascimento.isAfter(moment()) || dataNascimento.isBefore(moment().subtract(5, 'years'))) {
-      erros.push({ error: "Data de nascimento inválida!" });
+    if (!dataNascimento.isValid() || dataNascimento.isAfter(moment()) || !dataNascimento.isBefore(moment().subtract(5, 'years'))) {
+      erros.push({ error: "Data de nascimento inválida! No mínimo 5 anos de idade." });
     }
   };
 
-  if(!validado.senha || validado.senha === undefined || validado.senha === null || validado.senha <= 6 ||  !regex.senha.test(validado.senha) ) {
+  if(!validado.senha || validado.senha === undefined || validado.senha === null || validado.senha !== validado.confirmarSenha || validado.senha <= 6 ||  !regex.senha.test(validado.senha) ) {
     erros.push({error: "Senha inválida! A senha deve ter no minimo 6 caracteres."});
   };
 

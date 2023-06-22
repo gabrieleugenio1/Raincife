@@ -29,21 +29,22 @@
                     <form action="/criar-conta" method="post">
                         <div class="cadastro__forms__espaco">
                             <label for="nome">Digite seu nome:</label><br>
-                            <input type="text" name="nome" id="nome" minlength="4" required>
+                            <input type="text" name="nome" id="nome" minlength="4" placeholder="Ex: Carlos Almeida" required>
                             <small class="cadastro__forms__espaco-validacao" id="validacaoNome"></small>
                         </div>
                         <div class="cadastro__forms__espaco">
                             <label for="emailCel">Digite seu email ou número de telefone:</label><br>
-                            <input type="text" name="emailCel" id="emailCel" required>
+                            <input type="text" name="emailCel" id="emailCel" placeholder="Ex: 81987546789 ou carlos@gmail.com" required>
                         </div>
                         <div class="cadastro__forms__espaco">
                             <label for="senha">Digite sua senha:</label><br>
-                            <input type="password" name="senha" id="senha" minlength="6" required>
+                            <input type="password" name="senha" id="senha" placeholder="******" minlength="6" required>
                         </div>
                         <div class="cadastro__forms__espaco">
                             <label for="confirmarSenha">Confirme sua senha:</label><br>
-                            <input type="password" name="confirmarSenha" id="confirmarSenha" required>
+                            <input type="password" name="confirmarSenha" placeholder="******" id="confirmarSenha" required>
                         </div>
+                        <small class="cadastro__forms__espaco-validacao" id="validacaoSenha"></small>
                         <div class="cadastro__forms__espaco">
                             <label for="dataNascimento">Data de nascimento: </label><br>
                             <input type="date" name="dataNascimento" id="dataNascimento" required>

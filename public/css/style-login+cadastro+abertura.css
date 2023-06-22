@@ -15,6 +15,7 @@ h5{
 }
 /*Alterando todos os inputs*/
 input, select{
+    margin: 2px 0;
     background-color: var(--cor-branco);
     border-radius: 14px;
     border-color: var(--cor-branco);
@@ -56,11 +57,15 @@ input, select{
     align-items: center;
 }
 
-
 /*Alterando o input email e password*/
-input[type="email"], input[type="password"], input[type="text"], input[type="number"]{
+input[type="email"], input[type="password"], input[type="text"], input[type="number"] {
     height: 2.2rem;
     width: 100%;
+}
+
+input[type="email"]::placeholder, input[type="password"]::placeholder, input[type="text"]::placeholder, input[type="number"]::placeholder {
+    padding-left: 8px;
+
 }
 
 input[type=number]::-webkit-inner-spin-button,

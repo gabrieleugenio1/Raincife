@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= title %></title>
+    <link rel="icon" href="/assets/img/logo-verde.svg" />
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css" />
+    <link rel="stylesheet" href="/css/alerts.css" />
+    <script defer src="/js/alert.js"></script>
+    <script defer src="/js/validarSenha.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <div class="nav__icon">
+          <a href="/"
+            ><i class="fa-solid fa-chevron-left fa-xl nav_icon-icone"></i
+          ></a>
+        </div>
+        <div class="nav__imagem">
+          <a href="/"><img src="/assets/img/logo-branca.svg" alt="" /></a>
+        </div>
+      </div>
+    </header>
+
+    <%- include("./partials/alerts"); %>
+
+    <main>
+      <section>
+        <div class="login">
+          <h1>Esqueceu a senha?</h1>
+          <div class="login__forms">
+            <%if(codigo ? codigo.length == 6 : null){ %>
+            <form action="/criar-nova-senha" method="post">
+              <div>
+                  <input type="hidden" name="CodigoHidden" value="<%= codigo %>">
+                  <input type="hidden" name="emailQuery" value="<%= email %>">
+                <br />
+                <div>
+                    <label for="senhaUm">Insira a nova senha:</label>
+                    <input name="senhaUm" id="senhaUm" placeholder="******" minlength="6" type="password" required />
+                </div>
+               <div>
+                    <label for="senhaDois">Confirme a senha:</label>
+                    <input name="senhaDois" id="senhaDois" placeholder="******" minlength="6" type="password" required />
+               </div>
+                
+                <small class="cadastro__forms__espaco-validacao" id="validacaoSenha"></small>
+              </div>
+              <br />
+              <div class="login__forms___submit">
+                <input type="submit" id="submitEsqueci" value="Alterar senha" />
+              </div>
+            </form>
+            <%} else {%>
+            <form action="/envio-link" method="post">
+              <div>
+                <label for="emailcel"
+                  >Digite seu email(no momento apenas email):</label
+                ><br />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Insira o seu email"
+                />
+              </div>
+              <br />
+              <div class="login__forms___submit">
+                <input type="submit" value="Enviar link" />
+              </div>
+            </form>
+            <%}%>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
