@@ -3,9 +3,9 @@
 import { Conn }  from '../db/Conn.mjs';
 import routes from '../routes/index.mjs';
 import flash from "connect-flash";
-import cookieParser from 'cookie-parser';
 import session from "express-session";
-
+import MongoStore from 'connect-mongo'
+import options from '../db/Mongodb.mjs';
 
 function configExpress(express, app) {
 
@@ -15,14 +15,17 @@ function configExpress(express, app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(flash());
-  app.use(cookieParser());
   Conn.authenticate();
 
   //Session
-   app.use(session({
+  app.use(session({
     secret:process.env.SECRET_SESSION,
-    resave:true,
-    saveUninitialized:true    
+    resave:false,
+    cookie: {
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dias
+    },
+    saveUninitialized:true,  
+    store: options.mongoUrl ? MongoStore.create(options) : new session.MemoryStore(),
   }));
 
   //Rotas
