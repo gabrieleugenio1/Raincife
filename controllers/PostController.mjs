@@ -85,7 +85,7 @@ export default class PostController {
         if(usuarioEmail) {
           const codigoEmail = await Codigo.create({codigo:codigo, dataGerada: fn('NOW'), UserId:usuarioEmail.id}); 
           const link = req.headers.host + '/esqueci-senha?codigo=' + codigoEmail.codigo + '&' + `email=${usuarioEmail.email}`;
-          enviarEmail(link, usuarioEmail.email, req.protocol);            
+          await enviarEmail(link, usuarioEmail.email, req.protocol);            
           req.flash('success','Link para recuperação enviado, caso não encontre, verifique a caixa de spam.');
           return res.status(200).redirect("/esqueci-senha");
         }
