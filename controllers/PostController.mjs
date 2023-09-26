@@ -7,6 +7,7 @@ import enviarEmail from '../functions/enviarEmail.mjs';
 import gerarCodigo from '../functions/gerarCodigo.mjs';
 import Codigo from '../models/Codigo.mjs';
 import moment from 'moment';
+import validarUserAlteracao from '../functions/validarUserAlteracao.mjs';
 export default class PostController {
 
     static async cadastro (req, res) {
@@ -15,13 +16,14 @@ export default class PostController {
          if(validacao?.emailCel) {
             const salt = genSaltSync(10);
             const senhaCriptografada = hashSync(validacao.senha, salt); 
+            const totalUsers = await Users.count();
             try {
                 if(validacao?.tipoConta === "email") {        
                     await Users.create({nome: validacao.nome, email: validacao.emailCel, senha: senhaCriptografada, 
-                        dataNascimento: validacao.dataNascimento, morro: validacao.localizacao});    
+                        dataNascimento: validacao.dataNascimento, morro: validacao.localizacao, tipo: totalUsers === 0 ? "admin" : "comum"});    
                 } else {             
                     await Users.create({nome: validacao.nome, telefone: validacao.emailCel, senha: senhaCriptografada, 
-                        dataNascimento: validacao.dataNascimento,morro: validacao.localizacao});    
+                        dataNascimento: validacao.dataNascimento,morro: validacao.localizacao, tipo: totalUsers === 0 ? "admin" : "comum"});    
                 };
                 req.flash("success", "Conta criada com sucesso!");
                 return res.status(201).redirect("/");     
@@ -63,6 +65,7 @@ export default class PostController {
                 email: user.email,
                 telefone: user.telefone,
                 morro: user.morro,
+                tipo: user.tipo,
                 dataNascimento: user.dataNascimento
               };
               return res.status(200).redirect("/home");
@@ -123,4 +126,61 @@ export default class PostController {
       req.flash('erros','Insira uma senha valida.');
       return res.status(400).redirect(`/esqueci-senha?codigo=${CodigoHidden}`);
   };
+
+  static async alterarUser (req, res) {
+    const validado = validarUserAlteracao(req.body);
+    const id = req.params.id;
+    const tipo = req.body.tipo;  
+    const formId = req.body.id;
+
+    if (id === undefined || id === null || id !== formId) {
+        req.flash('erros',['Erro ao alterar conta.'])
+      return res.status(400).redirect("/admin");}
+
+    if(validado?.[0]?.error){
+      req.flash('erros',validado[0].error);
+      return res.status(400).redirect(`/admin`);
+    }
+    const user = await Users.findByPk(id);
+    if(!user){
+      req.flash('erros',['Erro ao alterar conta.'])
+      return res.status(400).redirect("/admin");
+    }
+
+    const countAdmin = await Users.count({where: {tipo: "admin"}});
+    if(countAdmin === 1 && tipo === "comum" && user.tipo === "admin") {
+      req.flash('erros',['Erro ao alterar conta. Não é possível alterar o tipo de conta quando só há um administrador.'])
+      return res.status(400).redirect("/admin");
+    }
+
+    validado.tipo = tipo;
+    
+    await Users.update(validado, {where: {id: id}});
+    req.flash('success','Conta alterada com sucesso.');
+    return res.status(200).redirect(`/admin`);
+  
+  };
+
+  static async deleteUser (req, res) {
+    const id = req.params.id;
+    if (id === undefined || id === null) return res.status(400).redirect("/admin");
+    const user = await Users.findByPk(id);
+    if(!user){
+      req.flash('erros',['Erro ao deletar conta.'])
+      return res.status(400).redirect("/admin");
+    }
+
+    const countAdmin = await Users.count({where: {tipo: "admin"}});
+    
+    if(countAdmin === 1) {
+      req.flash('erros',['Erro ao deletar conta. Não é possível deletar um administrador.'])
+      return res.status(400).redirect("/admin");
+    }
+
+    await Users.destroy({where: {id: id}});
+    req.flash('success','Conta deletada com sucesso.');
+    return res.status(200).redirect(`/admin`);
+  
+  };
+
 }
