@@ -25,7 +25,7 @@ function configExpress(express, app) {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dias
     },
     saveUninitialized:true,  
-    store: options.mongoUrl ? MongoStore.create(options) : new session.MemoryStore(),
+    store: process.env.MONGO_DB_URL ? MongoStore.create(options) : new session.MemoryStore(),
   }));
 
   //Rotas
