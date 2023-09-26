@@ -16,6 +16,15 @@ export default class Middleware {
         }else{
             next();
         };
+
      };
+
+    static async admin (req, res, next) {
+        if(req.session.user.tipo === "admin") {
+            next();
+        }else{
+            res.redirect("/home");
+        };
+     }
     
 };
