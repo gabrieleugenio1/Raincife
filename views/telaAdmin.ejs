@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="icon" href="/assets/img/logo-verde.svg">
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/alerts.css">
+    <link rel="stylesheet" href="/css/menu.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/style-home.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    
+    <script defer src="/js/menu.js"></script>
+    <script defer src="/js/alert.js"></script>
+    <%- include("./partials/manifest"); %>
+</head>
+<body>
+    <%- include("./partials/header"); %>    
+    <main class="main">
+        <%- include("./partials/alerts"); %>
+        <div>
+            <h2>Lista de usuários</h2>
+        </div>
+        <div class="users">
+            <div class="tipo">
+                <p>Nome</p>
+                <p>Email</p>
+                <p>Celular</p>
+                <p>Morro</p>
+                <p>Tipo</p>
+                <p>Alterar</p>
+            </div>
+            <% for(user of users) {%>
+            <div class="user">
+                <p> <%= user.nome %></p>
+                <p> <%= user.email ? user.email : "Não cadastrado" %></p>
+                <p><%= user.telefone ? user.telefone : "Não cadastrado" %></p>
+                <p> <%= user.morro %></p>  
+                <p> <%= user.tipo %></p>
+                 <a href="/admin/user/<%=user.id%>">Alterar/Deletar</a>                                  
+            </div>
+          <% } %> 
+
+        </div>
+
+    </main>
+</body>
+</html>
