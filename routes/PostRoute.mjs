@@ -11,4 +11,6 @@ router
       .post('/envio-link', Middleware.jaEstaAutenticado, PostController.envioLink) 
       .post('/criar-nova-senha', Middleware.jaEstaAutenticado, PostController.criarNovaSenha) 
       .post('/login-conta', Middleware.jaEstaAutenticado, PostController.login)
+      .post('/admin/alterar-user/:id', Middleware.admin, PostController.alterarUser)
+      .post('/admin/delete-user/:id', Middleware.admin, PostController.deleteUser)
 export default router;
