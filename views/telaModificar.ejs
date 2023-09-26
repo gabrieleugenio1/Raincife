@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= title %></title>
+    <link rel="icon" href="/assets/img/logo-verde.svg">
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/style-login+cadastro+abertura.css">
+    <link rel="stylesheet" href="/css/alerts.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script defer src="/js/alert.js"></script>
+    <script defer src="/js/validacao.js"></script>
+    <%- include("./partials/manifest"); %>
+</head>
+<body>
+    <header style="display: flex; justify-content: center;">  
+            <div><img src="/assets/img/logo-branca.svg" alt="Logo"></div>
+        </div>
+    </header>
+    <%- include("./partials/alerts"); %>
+    <main>
+        <section>
+            <div class="cadastro">
+                <div class="cadastro__forms" >
+                    <form action="/admin/alterar-user/<%= alterarUser.id %>" method="post">
+                        <input type="hidden" name="id" value="<%= alterarUser.id%>">
+                        <div class="cadastro__forms__espaco">
+                            <label for="nome">Digite o nome:</label><br>
+                            <input type="text" name="nome" id="nome" minlength="4" value="<%=alterarUser.nome%>" placeholder="Ex: Carlos Almeida" required>
+                            <small class="cadastro__forms__espaco-validacao" id="validacaoNome"></small>
+                        </div>
+                        <div class="cadastro__forms__espaco">
+                            <label for="dataNascimento">Data de nascimento: </label><br>
+                            <input type="date" name="dataNascimento" id="dataNascimento" value="<%=alterarUser.dataNascimento%>" required>
+                        </div>
+                        <div class="cadastro__forms__espaco">
+                            <label for="tipo">Tipo:</label><br>
+                           <select name="tipo" id="tipo" required>                            
+                            <option value="admin" <%= alterarUser.tipo === 'admin' ? 'selected' : '' %>>Admin</option>
+                            <option value="comum" <%= alterarUser.tipo === 'comum' ? 'selected' : '' %>  >Comum</option>
+                           </select>
+                        </div>
+                        <br>
+                        <div class="cadastro__forms___submit">
+                            <input type="submit" id="submitCadastro" value="Alterar conta">
+                        </div>                       
+                    </form>
+                    <form action="/admin/delete-user/<%= alterarUser.id %>" method="post">
+                        <input type="hidden" name="id" value="<%= alterarUser.id%>">
+                        <br>
+                        <div class="cadastro__forms___submit forms_delete">
+                            <input type="submit" id="submitDelete" value="Deletar conta" onclick="return confirm('Você realmente deseja deletar esta conta?')">
+                        </div>                       
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
