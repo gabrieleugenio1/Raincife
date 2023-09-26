@@ -14,4 +14,6 @@ router
       .get('/esqueci-senha', Middleware.jaEstaAutenticado, GetController.esqueceuSenha)
       .get('/home', Middleware.autorizacao, GetController.home)
       .get('/logout', Middleware.autorizacao, GetController.logout)
+      .get('/admin', Middleware.autorizacao, Middleware.admin, GetController.admin)
+      .get('/admin/user/:id', Middleware.admin, GetController.alterarUser)
 export default router;
