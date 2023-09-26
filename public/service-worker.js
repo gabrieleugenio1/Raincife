@@ -1,6 +1,7 @@
 const CACHE_NAME = 'Raincife';
 const urlsToCache = [
-  '/*',
+  '/',
+  '/home/',
 ];
 
 self.addEventListener('install', (event) => {
@@ -9,6 +10,21 @@ self.addEventListener('install', (event) => {
       .then((cache) => {
         return cache.addAll(urlsToCache);
       })
+      .then(() => self.skipWaiting()) 
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
+        })
+      );
+    })
   );
 });
 
@@ -21,4 +37,15 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-
+// Adicione o escopo ao registrar o Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+    .then(function(registration) {
+      // Registro bem-sucedido
+      console.log('Service Worker registrado com sucesso!', registration);
+    })
+    .catch(function(error) {
+      // O registro falhou
+      console.error('Erro ao registrar o Service Worker:', error);
+    });
+}
