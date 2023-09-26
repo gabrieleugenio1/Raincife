@@ -1,58 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="App de monitoramento de barreiras.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="App de monitoramento de barreiras." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= title %></title>
-    <link rel="icon" href="/assets/img/logo-verde.svg">
-    <link rel="stylesheet" type="text/css" href="/css/all.min.css">
-    <link rel="stylesheet" href="/css/globals.css">
-    <link rel="stylesheet" href="/css/style-home.css">
-    <link rel="stylesheet" href="/css/menu.css">
+    <link rel="icon" href="/assets/img/logo-verde.svg" />
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/globals.css" />
+    <link rel="stylesheet" href="/css/style-home.css" />
+    <link rel="stylesheet" href="/css/menu.css" />
     <script defer src="/js/menu.js"></script>
     <%- include("./partials/manifest"); %>
-</head>
-<body>
-    <header class="header">
-        <nav class="nav">
-          <button class="btn-menu">
-            <span class="hamburger cursor"></span>
-          </button>
-          <ul class="menu" id="menu" role="menu">
-            <li>
-              <div class="menu__usuario">
-                <img src="https://static8.depositphotos.com/1046686/921/i/450/depositphotos_9218159-stock-photo-grey-background.jpg" alt="">
-                <div>
-                    <h5><%= user.nome %></h5><br>
-                    <p>
-                        <% if(user.email) { %> 
-                            Email: <%= user.email %>
-                        <%} else { %> 
-                            Número: <%= user.telefone %>
-                        <%} %>                                                                  
-                    </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div>
-                <a href="#"><i class="fa-solid fa-house-chimney-medical fa-xl icon-distancia"></i>Abrigos Próximos</a>
-              </div>
-            </li>
-            <li><a href="#"><i class="fa-solid fa-gear fa-xl icon-distancia"></i>Configurações</a></li>
-            <li><a href="/logout"><i class="fa-solid fa-right-from-bracket fa-xl icon-distancia"></i>Sair da conta</a></li>
-            <li class="central-ajuda"><a href="#"><i class="fa-regular fa-circle-question fa-xl icon-distancia"></i>Central de ajuda</a></li>
-          </ul>
-          <a href="#"><img src="/assets/img/logo-verde.svg" alt=""></a>
-          <a class="nav__icon___pesquisa" href=""><i class="fa-solid fa-magnifying-glass fa-xl icon-pesquisa "></i></a>
-        </nav>
-      </header>
+  </head>
+  <body>
+  
+    <%- include("./partials/header"); %>
+
+<!--     <main>
+      <section class="abrigos">
+        <div>
+          <h2>Abrigos</h2>
+        </div>
+        
+      </section>
       
+    </main> -->
 
-
-    
-    
-</body>
+  </body>
 </html>
