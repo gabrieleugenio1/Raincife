@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
       {
-        name: 'my-app',
+        name: 'raincife',
         script: 'index.mjs',
         watch: true, 
       },
