@@ -6,11 +6,16 @@ import flash from "connect-flash";
 import session from "express-session";
 import MongoStore from 'connect-mongo'
 import options from '../db/Mongodb.mjs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const currentDir = dirname(fileURLToPath(import.meta.url));
 
 function configExpress(express, app) {
 
   //Configurando express
   app.set("view engine", "ejs");
+  app.set('views', `${currentDir}/../views`);
   app.use(express.static("public"));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
