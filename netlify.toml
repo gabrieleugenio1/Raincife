@@ -1,0 +1,3 @@
+[build]
+  command = "npm run build"
+  publish = "dist" # A pasta onde os arquivos construídos são armazenados
