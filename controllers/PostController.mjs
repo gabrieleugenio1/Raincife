@@ -172,7 +172,7 @@ export default class PostController {
 
     const countAdmin = await Users.count({where: {tipo: "admin"}});
     
-    if(countAdmin === 1) {
+    if(countAdmin === 1 && user.tipo === "admin") {
       req.flash('erros',['Erro ao deletar conta. Não é possível deletar um administrador.'])
       return res.status(400).redirect("/admin");
     }
