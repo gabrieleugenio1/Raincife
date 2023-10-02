@@ -6,27 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= title %></title>
+    
+    <%- include("./partials/manifest"); %>
     <link rel="icon" href="/assets/img/logo-verde.svg" />
-    <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
     <link rel="stylesheet" href="/css/globals.css" />
     <link rel="stylesheet" href="/css/style-home.css" />
     <link rel="stylesheet" href="/css/menu.css" />
     <script defer src="/js/menu.js"></script>
-    <%- include("./partials/manifest"); %>
+    <script defer src="/js/maps.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi7UGUm-l9H_rTIAUMvXpsTKBXcN8WUYw&callback=initMap" async defer></script>
+
   </head>
   <body>
   
     <%- include("./partials/header"); %>
 
-<!--     <main>
+     <main class="container">
       <section class="abrigos">
         <div>
           <h2>Abrigos</h2>
         </div>
+        <div id="map" style="height: 400px;"></div>
+        <div id="map-legend">
+          <h4>Legenda do Mapa</h4>
+          <ul>
+            <li><img src="https://maps.google.com/mapfiles/ms/icons/green-dot.png"> Abrigo mais próximo</li>
+            <li><img src="https://maps.google.com/mapfiles/ms/icons/blue-dot.png"> Outros abrigos</li>
+            <li><img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png"> Sua localização</li>
+          </ul>
+        </div>
         
       </section>
       
-    </main> -->
+    </main> 
 
   </body>
 </html>
