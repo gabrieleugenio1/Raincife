@@ -23,3 +23,45 @@ body{
 .header > nav:last-child{
     padding-right: 1rem;
 }
+
+.container{
+    margin: 01rem 2rem 0 2rem;
+}
+
+.abrigos {
+    position: relative;
+}
+
+#map-legend {
+    position: absolute;
+    top: 40px;
+    left: 10px; /* Distância da esquerda */
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  
+  #map-legend h4 {
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  #map-legend ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #map-legend li {
+    margin-bottom: 5px;
+  }
+  
+  #map-legend img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
