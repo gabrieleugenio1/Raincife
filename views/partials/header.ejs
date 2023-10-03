@@ -11,7 +11,7 @@
               alt=""
             />
             <div>
-              <h5><%= user.nome %></h5>
+              <h4><%= user.nome %></h4>
               <br />
               <p>
                 <% if(user.email) { %> Email: <%= user.email %> <%} else { %>
@@ -21,19 +21,15 @@
           </div>
         </li>
         <li>
-          <div>
-            <a href="#"
-              ><i
-                class="fa-solid fa-house-chimney-medical fa-xl icon-distancia"
-              ></i
-              >Abrigos Próximos</a
-            >
-          </div>
-        </li>
-        <li>
           <a href="#"
             ><i class="fa-solid fa-gear fa-xl icon-distancia"></i
             >Configurações</a
+          >
+        </li>
+        <li >
+          <a href="#"
+            ><i class="fa-regular fa-circle-question fa-xl icon-distancia"></i
+            >Central de ajuda</a
           >
         </li>
         <li>
@@ -44,16 +40,9 @@
             >Sair da conta</a
           >
         </li>
-        <li class="central-ajuda">
-          <a href="#"
-            ><i class="fa-regular fa-circle-question fa-xl icon-distancia"></i
-            >Central de ajuda</a
-          >
-        </li>
+
       </ul>
-      <a href="/"><img src="/assets/img/logo-verde.svg" alt="logo" /></a>
-      <a class="nav__icon___pesquisa" href=""
-        ><i class="fa-solid fa-magnifying-glass fa-xl icon-pesquisa"></i
-      ></a>
+      <a href="/home"><img src="/assets/img/logo-verde.svg" alt="logo" /></a>
+      <div></div>
     </nav>
   </header>
