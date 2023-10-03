@@ -25,19 +25,18 @@ export default class PostController {
                     await Users.create({nome: validacao.nome, telefone: validacao.emailCel, senha: senhaCriptografada, 
                         dataNascimento: validacao.dataNascimento,morro: validacao.localizacao, tipo: totalUsers === 0 ? "admin" : "comum"});    
                 };
-                req.flash("success", "Conta criada com sucesso!");
+                req.flash("success", ["Conta criada com sucesso!"]);
                 return res.status(201).redirect("/");     
             } catch (error) {
                 if (error.name === 'SequelizeUniqueConstraintError') {
-                  req.flash("erros", "Email ou telefone já está cadastrado.");
-                  console.log('Email ou telefone já está cadastrado.');
+                  req.flash("erros", ["Email ou telefone já está cadastrado."]);
                   return res.status(400).redirect("/cadastro");     
                 } else {                 
                   console.error('Ocorreu um erro ao inserir os dados:', error);
                 };
             };                
         };  
-        req.flash("erros", validacao ?? "Dados inválidos ou faltando.");      
+        req.flash("erros", validacao ?? ["Dados inválidos ou faltando."]);      
         return res.status(400).redirect("/cadastro");     
     };
 
@@ -45,7 +44,7 @@ export default class PostController {
         const { emailCel, senha } = req.body;
 
         if (!emailCel || !senha) {
-          req.flash("erros", "Login ou senha inválidos.");
+          req.flash("erros", ["Login ou senha inválidos."]);
           return res.status(400).redirect("/login");
         }
         
@@ -70,11 +69,11 @@ export default class PostController {
               };
               return res.status(200).redirect("/home");
             } else {
-              req.flash("erros", "Login ou senha inválidos.");
+              req.flash("erros", ["Login ou senha inválidos."]);
               return res.status(400).redirect("/login");
             }
           } else {
-            req.flash("erros", "Login ou senha inválidos.");
+            req.flash("erros", ["Login ou senha inválidos."]);
             return res.status(400).redirect("/login");
           }
         });
@@ -89,11 +88,11 @@ export default class PostController {
           const codigoEmail = await Codigo.create({codigo:codigo, dataGerada: fn('NOW'), UserId:usuarioEmail.id}); 
           const link = req.headers.host + '/esqueci-senha?codigo=' + codigoEmail.codigo + '&' + `email=${usuarioEmail.email}`;
           await enviarEmail(link, usuarioEmail.email, req.protocol);            
-          req.flash('success','Link para recuperação enviado, caso não encontre, verifique a caixa de spam.');
+          req.flash('success',['Link para recuperação enviado, caso não encontre, verifique a caixa de spam.']);
           return res.status(200).redirect("/esqueci-senha");
         }
       }
-      req.flash('erros','Falha ao enviar link.');
+      req.flash('erros',['Falha ao enviar link.']);
       return res.status(400).redirect("/esqueci-senha");  
     }
 
@@ -117,13 +116,13 @@ export default class PostController {
           if(diferenca <= 5 && (emailUser.ativo === true || emailUser.ativo === 1) && emailQuery === emailUser['User.email']) {
               await Users.update({senha:senhaCriptografada}, {where: {email: emailUser['User.email']}})
               await Codigo.update({ativo:false}, {where: {UserId: emailUser['User.id'], codigo: CodigoHidden}})
-              req.flash('success','Alteração feita com sucesso!');
+              req.flash('success',['Alteração feita com sucesso!']);
               return res.status(200).redirect("/");
           };
-          req.flash('erros','Código expirado ou inexistente.');
+          req.flash('erros',['Código expirado ou inexistente.']);
           return res.status(400).redirect("/esqueci-senha");
       };
-      req.flash('erros','Insira uma senha valida.');
+      req.flash('erros',['Insira uma senha valida.']);
       return res.status(400).redirect(`/esqueci-senha?codigo=${CodigoHidden}`);
   };
 
@@ -156,7 +155,7 @@ export default class PostController {
     validado.tipo = tipo;
     
     await Users.update(validado, {where: {id: id}});
-    req.flash('success','Conta alterada com sucesso.');
+    req.flash('success',['Conta alterada com sucesso.']);
     return res.status(200).redirect(`/admin`);
   
   };
@@ -178,7 +177,7 @@ export default class PostController {
     }
 
     await Users.destroy({where: {id: id}});
-    req.flash('success','Conta deletada com sucesso.');
+    req.flash('success',['Conta deletada com sucesso.']);
     return res.status(200).redirect(`/admin`);
   
   };
