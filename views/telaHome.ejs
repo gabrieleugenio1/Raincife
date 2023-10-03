@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="/css/globals.css" />
     <link rel="stylesheet" href="/css/style-home.css" />
     <link rel="stylesheet" href="/css/menu.css" />
+    <link rel="stylesheet" href="/css/emergency.css" />
     <script defer src="/js/menu.js"></script>
-    <script defer src="/js/maps.js"></script>
+    <script src="/js/maps.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi7UGUm-l9H_rTIAUMvXpsTKBXcN8WUYw&callback=initMap" async defer></script>
-
+    <script defer src="/js/clima.js"></script>
+    <script defer src="/js/emergency.js"></script>
   </head>
   <body>
   
@@ -37,8 +39,34 @@
         </div>
         
       </section>
-      
+      <section>
+        <div class="weather-card" id="weatherCard">
+          <h2>Previsão do Tempo</h2>
+          <p>Carregando...</p>
+      </div>
+      </section>
+      <section>   
+      <div id="emergencyModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Números de emergências</h2>
+          </div>
+          <div class="modal-body">
+            <div class="buttons">
+              <a href="tel:190">Polícia Militar (190)</a>
+              <a href="tel:199">Defesa Civil (199)</a>
+              <a href="tel:192">Samu (192)</a>
+              <a href="tel:193">Corpo de Bombeiros (193)</a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
     </main> 
-
+    <footer>
+      <button class="emergency" id="emergency">📞</button>
+    </footer>
   </body>
 </html>
