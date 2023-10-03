@@ -20,32 +20,40 @@
 <body>
     <%- include("./partials/header"); %>    
     <main class="main">
-        <%- include("./partials/alerts"); %>
-        <div>
+        <% if (users.length > 0) { %>
+        <div class="table-container">
             <h2>Lista de usuários</h2>
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Celular</th>
+                        <th>Morro</th>
+                        <th>Tipo</th>
+                        <th>Alterar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (user of users) { %>
+                    <tr class="user-row">
+                        <td><%= user.nome %></td>
+                        <td><%= user.email ? user.email : "Não cadastrado" %></td>
+                        <td><%= user.telefone ? user.telefone : "Não cadastrado" %></td>
+                        <td><%= user.morro %></td>
+                        <td><%= user.tipo %></td>
+                        <td><a href="/admin/user/<%= user.id %>">Alterar/Deletar</a></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
-        <div class="users">
-            <div class="tipo">
-                <p>Nome</p>
-                <p>Email</p>
-                <p>Celular</p>
-                <p>Morro</p>
-                <p>Tipo</p>
-                <p>Alterar</p>
-            </div>
-            <% for(user of users) {%>
-            <div class="user">
-                <p> <%= user.nome %></p>
-                <p> <%= user.email ? user.email : "Não cadastrado" %></p>
-                <p><%= user.telefone ? user.telefone : "Não cadastrado" %></p>
-                <p> <%= user.morro %></p>  
-                <p> <%= user.tipo %></p>
-                 <a href="/admin/user/<%=user.id%>">Alterar/Deletar</a>                                  
-            </div>
-          <% } %> 
-
+        <% } else { %>
+        <div>
+            <h2>Nenhum usuário encontrado</h2>
         </div>
-
+        <% } %>
     </main>
+    
 </body>
 </html>
