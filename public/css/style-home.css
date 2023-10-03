@@ -11,11 +11,10 @@ body{
     margin-top: .5rem;
 }
 
-/*Cor dos ícones*/
 .icons{
     color: var(--cor-verde);
 }
-/*Distancia no menu*/
+
 .header > nav:nth-child(1){
     padding-left: 1rem;
 }
@@ -25,7 +24,8 @@ body{
 }
 
 .container{
-    margin: 01rem 2rem 0 2rem;
+    margin: .7rem 2rem 0 2rem;
+    position: relative;
 }
 
 .abrigos {
@@ -35,33 +35,74 @@ body{
 #map-legend {
     position: absolute;
     top: 40px;
-    left: 10px; /* Distância da esquerda */
+    left: 10px; 
     background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
+}
 
   
-  #map-legend h4 {
+#map-legend h4 {
     margin-top: 0;
     font-size: 14px;
     font-weight: bold;
-  }
-  
-  #map-legend ul {
+}
+
+#map-legend ul {
     list-style: none;
     padding: 0;
-  }
-  
-  #map-legend li {
+}
+
+#map-legend li {
     margin-bottom: 5px;
-  }
-  
-  #map-legend img {
+}
+
+#map-legend img {
     width: 20px;
     height: 20px;
     margin-right: 5px;
     vertical-align: middle;
-  }
-  
+}
+
+.weather-card {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column; /* Alterado para coluna para empilhar as previsões verticalmente */
+    align-items: center; /* Alinhar as previsões no centro horizontalmente */
+}
+
+.weather-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.weather-card p {
+    font-size: 18px;
+}
+
+.previsoes {
+    display: flex; /* Exibir as previsões horizontalmente */
+    gap: 10px; /* Espaço entre as previsões */
+}
+
+.previsao-card {
+    flex: 1; /* Fazer com que cada previsão ocupe o espaço disponível horizontalmente */
+    max-width: 250px; /* Largura máxima de cada previsão */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.previsao-card:first-child{
+    margin-left: 620px;
+}
+
