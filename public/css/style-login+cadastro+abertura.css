@@ -16,7 +16,7 @@ h5{
 /*Alterando todos os inputs*/
 input, select{
     margin: 2px 0;
-    background-color: var(--cor-branco);
+    background-color: #F2F2F2;
     border-radius: 14px;
     border-color: var(--cor-branco);
 }
@@ -133,7 +133,7 @@ h4, h5{
     margin: 0;
 }
 
-button{
+button:not(.emergency) {
     align-content: center;
     color: var(--cor-verde);
     padding: .4rem 2.6rem;
