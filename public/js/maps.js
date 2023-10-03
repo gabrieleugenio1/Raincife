@@ -162,6 +162,7 @@ function showPosition(position) {
 
         (function (marker, infowindow) {
             infowindow.open(map, marker);
+            openInfoWindow = infowindow; 
             marker.addListener('click', function () {
              
                 if (openInfoWindow) {
