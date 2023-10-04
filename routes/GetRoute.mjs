@@ -8,7 +8,7 @@ import Middleware from '../middlewares/Middlewares.mjs';
 const router = Router();
 
 router
-      .get('/', Middleware.jaEstaAutenticado, GetController.index)
+      .get('/', GetController.index)
       .get('/cadastro', Middleware.jaEstaAutenticado, GetController.cadastro)
       .get('/login', Middleware.jaEstaAutenticado, GetController.login)
       .get('/esqueci-senha', Middleware.jaEstaAutenticado, GetController.esqueceuSenha)
