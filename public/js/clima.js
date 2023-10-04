@@ -11,7 +11,7 @@ const descricaoTraduzida = {
     'broken clouds': 'Céu nublado',
     'light rain': 'Chuva leve',
     'moderate rain': 'Chuva moderada',
-    'overcast clouds': 'Nuvens nubladas',
+    'overcast clouds': 'Céu nublado',
     'light intensity shower rain': 'Chuva leve',
     'light intensity drizzle': 'Chuvisco',
     'heavy intensity rain': 'Chuva intensa',
