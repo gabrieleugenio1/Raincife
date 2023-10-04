@@ -26,7 +26,7 @@ export default class PostController {
                         dataNascimento: validacao.dataNascimento,morro: validacao.localizacao, tipo: totalUsers === 0 ? "admin" : "comum"});    
                 };
                 req.flash("success", ["Conta criada com sucesso!"]);
-                return res.status(201).redirect("/");     
+                return res.status(201).redirect("/login");     
             } catch (error) {
                 if (error.name === 'SequelizeUniqueConstraintError') {
                   req.flash("erros", ["Email ou telefone já está cadastrado."]);
