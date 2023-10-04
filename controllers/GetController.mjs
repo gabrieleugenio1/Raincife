@@ -5,7 +5,7 @@ import User from "../models/User.mjs";
 export default class GetController {
 
     static async index (req, res) {
-        return res.status(200).render("index", { title: "Raincife", success: req.flash("success"), erros: req.flash("erros")});     
+        return res.status(200).render("telaIndex", { title: "Raincife", success: req.flash("success"), erros: req.flash("erros")});     
     };
 
     static async cadastro (req, res) {
