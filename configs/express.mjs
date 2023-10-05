@@ -20,14 +20,13 @@ function configExpress(express, app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(flash());
-  Conn.authenticate();
 
   //Session
   app.use(session({
     secret:process.env.SECRET_SESSION,
     resave:false,
     cookie: {
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dias
+      maxAge: 2 * 24 * 60 * 60 * 1000, // 2 dias
     },
     saveUninitialized:true,  
     store: process.env.MONGO_DB_URL ? MongoStore.create(options) : new session.MemoryStore(),
