@@ -1,5 +1,4 @@
 'use strict';
-//Conectando com o banco
 import routes from '../routes/index.mjs';
 import flash from "connect-flash";
 import session from "express-session";
