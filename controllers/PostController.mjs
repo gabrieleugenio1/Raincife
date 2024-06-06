@@ -111,8 +111,9 @@ export default class PostController {
             where: { codigo: CodigoHidden },
             order: [['dataGerada', 'DESC']]
           });
+
           if(emailUser) horarioToken = moment(emailUser.dataGerada), diferenca = dataAtual.diff(horarioToken, 'minutes');
-          console.log("diferença: " + diferenca);
+
           if(diferenca <= 5 && (emailUser.ativo === true || emailUser.ativo === 1) && emailQuery === emailUser['User.email']) {
               await Users.update({senha:senhaCriptografada}, {where: {email: emailUser['User.email']}})
               await Codigo.update({ativo:false}, {where: {UserId: emailUser['User.id'], codigo: CodigoHidden}})
