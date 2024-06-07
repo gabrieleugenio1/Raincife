@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "pm2 start ecosystem.config.js",
-    "test:cucumber": "cucumber-js ./test/ --exit"
+    "test:cucumber": "cucumber-js ./test/ --format json:./reports/cucumber_report.json --exit "
   },
   "author": "",
   "license": "ISC",
