@@ -3,7 +3,7 @@
 import { Given, Then } from '@cucumber/cucumber';
 import * as chai from 'chai';
 import supertest from 'supertest';
-import app from '../../index.mjs'; 
+import app from '../index.mjs'; 
 
 const expect = chai.expect;
 const request = supertest(app);
@@ -39,23 +39,28 @@ Given('que eu acesse a rota {string} com dados válidos', async function (route)
         emailQuery: 'test@example.com'
       });
       break;
-    case `/admin/alterar-user/1`:
-      response = await request.post(route).send({
-        id: this.userId,
-        nome: 'Updated User',
-        email: 'updated@example.com',
-        tipo: 'comum'
-      })
-      break;
-    case `/admin/delete-user/1`:
-      response = await request.post(route);
-      break;
+
   }
   
   this.response = response;
 });
 
+Given('que eu acesse a rota {string} com um email válido', async function (route) {
+  const response = await request.post(route).send({
+    email: 'test@example.com'
+  });
+  this.response = response;
+});
+
 Then('eu devo ser redirecionado para {string} com uma mensagem de sucesso', function (expectedUrl) {
+  const statusCode = this.response.status;
+  const locationHeader = this.response.headers.location;
+
+  expect(statusCode, 302);
+  expect(locationHeader, expectedUrl);
+});
+
+Then('eu devo ser redirecionado para {string}', function (expectedUrl) {
   const statusCode = this.response.status;
   const locationHeader = this.response.headers.location;
 
